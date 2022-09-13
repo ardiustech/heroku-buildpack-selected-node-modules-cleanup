@@ -10,7 +10,7 @@ The maximum allowed Heroku slug size (after compression) is 300MB as a soft limi
 Adjust the index parameter based on other buildpacks in play, so that this buildpack is executed after asset compilation.
 
 ```bash
-$ heroku buildpacks:set --index 1 https://github.com/leoafarias/heroku-buildpack-node-modules-cleanup
+$ heroku buildpacks:set --index 1 https://github.com/ardiustech/heroku-buildpack-selected-node-modules-cleanup
 ```
 
 ## Documentation
