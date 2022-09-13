@@ -3,14 +3,16 @@
 
 BUILD_DIR=$1
 
+cd $BUILD_DIR
+
 echo "-----> Deleting node_modules/@babel..."
-find $BUILD_DIR -name 'node_modules/@babel' -type d -prune -print -exec rm -rf '{}' \;
+rm -rf node_modules/@babel
 
 echo "-----> Deleting node_modules/.cache..."
-find $BUILD_DIR -name 'node_modules/.cache' -type d -prune -print -exec rm -rf '{}' \;
+rm -rf node_modules/.cache
 
 echo "-----> Deleting node_modules/flowgen..."
-find $BUILD_DIR -name 'node_modules/flowgen' -type d -prune -print -exec rm -rf '{}' \;
+rm -rf node_modules/flowgen
 
 echo "-----> Deleting node_modules/typescript..."
-find $BUILD_DIR -name 'node_modules/typescript' -type d -prune -print -exec rm -rf '{}' \;
+rm -rf node_modules/typescript
