@@ -1,12 +1,14 @@
 # Heroku Buildpack: Selected Node Modules Cleanup
 
 Removes specific folders from the `node_modules` directory after the build process is completed:
-```
-112M node_modules/@babel
-105M node_modules/.cache
-82M  node_modules/flowgen
-61M  node_modules/typescript
-```
+
+| File Size | `node_modules` Folder  |
+|----------|------------------------|
+| 112M     | @babel                 |
+| 32M      | @gusto/workbench-illos |
+| 105M     | .cache                 |
+| 82M      | flowgen                |
+| 61M      | typescript             |
 
 ### Why?
 
