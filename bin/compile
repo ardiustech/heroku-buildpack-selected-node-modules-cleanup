@@ -8,6 +8,9 @@ cd $BUILD_DIR
 echo "-----> Deleting node_modules/@babel..."
 rm -rf node_modules/@babel
 
+echo "-----> Deleting node_modules/@gusto/workbench-illos..."
+rm -rf node_modules/@gusto/workbench-illos
+
 echo "-----> Deleting node_modules/.cache..."
 rm -rf node_modules/.cache
 

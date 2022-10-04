@@ -1,12 +1,14 @@
 # Heroku Buildpack: Selected Node Modules Cleanup
 
 Removes specific folders from the `node_modules` directory after the build process is completed:
-```
-112M node_modules/@babel
-105M node_modules/.cache
-82M  node_modules/flowgen
-61M  node_modules/typescript
-```
+
+| File Size | `node_modules` Folder  |
+|----------|------------------------|
+| 112M     | @babel                 |
+| 32M      | @gusto/workbench-illos |
+| 105M     | .cache                 |
+| 82M      | flowgen                |
+| 61M      | typescript             |
 
 ### Why?
 
@@ -15,8 +17,12 @@ The maximum allowed Heroku slug size (after compression) is 300MB as a soft limi
 ## Usage
 Adjust the index parameter based on other buildpacks in play, so that this buildpack is executed after asset compilation.
 
+You can specify a specific tag or branch of the buildpack by appending a Git object (e.g. a commit SHA, branch name or tag name) to the URL. For example:
+- https://github.com/ardiustech/heroku-buildpack-selected-node-modules-cleanup.git#master
+- https://github.com/ardiustech/heroku-buildpack-selected-node-modules-cleanup.git#c103a5d
+
 ```bash
-$ heroku buildpacks:set --index 1 https://github.com/ardiustech/heroku-buildpack-selected-node-modules-cleanup
+$ heroku buildpacks:set --index 1 https://github.com/ardiustech/heroku-buildpack-selected-node-modules-cleanup.git#master
 ```
 
 ## Documentation
