@@ -3,8 +3,11 @@
 
 BUILD_DIR=$1
 
-if [ -f $BUILD_DIR/package.json ]; then
-    echo "Node Cleanup"
+NODE_MODULES_CLEANUP_DIR = $BUILD_DIR/devlops/modules/buildpacks/node_modules_cleanup/
+
+if [ -f $NODE_MODULES_CLEANUP_DIR/buildpack-run.sh ]; then
+    echo "Performing Node Modules Cleanup"
+
     exit 0
 fi
 

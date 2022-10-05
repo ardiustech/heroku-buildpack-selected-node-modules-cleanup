@@ -3,19 +3,8 @@
 
 BUILD_DIR=$1
 
-cd $BUILD_DIR
+NODE_MODULES_CLEANUP_DIR = $BUILD_DIR/devlops/modules/buildpacks/node_modules_cleanup/
 
-echo "-----> Deleting node_modules/@babel..."
-rm -rf node_modules/@babel
+cd $NODE_MODULES_CLEANUP_DIR
 
-echo "-----> Deleting node_modules/@gusto/workbench-illos..."
-rm -rf node_modules/@gusto/workbench-illos
-
-echo "-----> Deleting node_modules/.cache..."
-rm -rf node_modules/.cache
-
-echo "-----> Deleting node_modules/flowgen..."
-rm -rf node_modules/flowgen
-
-echo "-----> Deleting node_modules/typescript..."
-rm -rf node_modules/typescript
+./buildpack-run.sh
