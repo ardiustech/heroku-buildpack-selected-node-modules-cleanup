@@ -15,7 +15,7 @@ You can specify a specific tag or branch of the buildpack by appending a Git obj
 - `https://github.com/ardiustech/heroku-buildpack-selected-node-modules-cleanup.git#c103a5d`
 
 ```bash
-$ heroku buildpacks:set --index 1 https://github.com/ardiustech/heroku-buildpack-selected-node-modules-cleanup.git#master
+$ heroku buildpacks:set --index 1 https://github.com/ardiustech/heroku-buildpack-selected-node-modules-cleanup.git#main
 ```
 
 ## Documentation
