@@ -3,7 +3,7 @@
 
 BUILD_DIR=$1
 
-NODE_MODULES_CLEANUP_DIR = $BUILD_DIR/devops/scripts/buildpacks/node_modules_cleanup/
+NODE_MODULES_CLEANUP_DIR=$BUILD_DIR/devops/scripts/buildpacks/node_modules_cleanup/
 
 cd $NODE_MODULES_CLEANUP_DIR
 
