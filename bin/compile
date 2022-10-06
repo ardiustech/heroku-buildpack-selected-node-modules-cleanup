@@ -7,4 +7,4 @@ NODE_MODULES_CLEANUP_DIR=$BUILD_DIR/devops/scripts/buildpacks/node_modules_clean
 
 cd $NODE_MODULES_CLEANUP_DIR
 
-./buildpack-run.sh
+./buildpack-run.sh $BUILD_DIR
