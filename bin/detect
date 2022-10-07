@@ -14,12 +14,20 @@ RED='\033[0;31m'
 
 # Check if buildpack-run.sh file exists to ensure we can run the proper scripts
 
-MESSAGE="Node Modules Cleanup\n"
+MESSAGE="Node Modules Cleanup:"
+FAIL_PREFIX="${RED}Fail:${NO_COLOR}"
 
 if [ ! -f $BUILDPACK_RUN_FILE ]; then
-  FAIL_PREFIX="${RED}Fail:${NO_COLOR}"
+  if [ -f $BUILD_DIR/package.json ]; then
+    echo "$MESSAGE"
+    echo "-----> Cannot find buildpack-run.sh in slug. Attempting original version of node_modules cleanup..."
+    exit 0
+  else
+    echo "$MESSAGE"
+    printf "-----> ${FAIL_PREFIX} Cannot find buildpack-run.sh in slug, or attempt node_modules cleanup."
+    exit 1
+  fi
+else
+  echo "${MESSAGE}"
+  exit 0
 fi
-
-printf "${FAIL_PREFIX} ${MESSAGE}"
-
-exit 0

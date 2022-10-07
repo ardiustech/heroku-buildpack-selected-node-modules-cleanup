@@ -25,5 +25,27 @@ if [ -f $BUILDPACK_RUN_FILE ]; then
 
   printf "...Done!\n"
 else
-  printf "${RED}Fail:${NO_COLOR} Unable to run Node Modules Cleanup script.\n"
+  # Attempt to clean node_modules directly from this buildpack.
+  if [ -f $BUILD_DIR/package.json ]; then
+    cd "$BUILD_DIR" || exit
+
+    echo "-----> Deleting node_modules/@babel..."
+    rm -rf node_modules/@babel
+
+    echo "-----> Deleting node_modules/@gusto/workbench-illos..."
+    rm -rf node_modules/@gusto/workbench-illos
+
+    echo "-----> Deleting node_modules/.cache..."
+    rm -rf node_modules/.cache
+
+    echo "-----> Deleting node_modules/flowgen..."
+    rm -rf node_modules/flowgen
+
+    echo "-----> Deleting node_modules/typescript..."
+    rm -rf node_modules/typescript
+
+    echo "-----> Finished nuking unnecessarily large node_modules folders!"
+  else
+    printf "${RED}Fail:${NO_COLOR} Unable to run Node Modules Cleanup script.\n"
+  fi
 fi
