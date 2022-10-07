@@ -14,7 +14,7 @@ RED='\033[0;31m'
 
 # Check if buildpack-run.sh file exists to ensure we can run the proper scripts
 
-MESSAGE="Node Modules Cleanup:\n"
+MESSAGE="Node Modules Cleanup:"
 FAIL_PREFIX="${RED}Fail:${NO_COLOR}"
 
 if [ ! -f $BUILDPACK_RUN_FILE ]; then
