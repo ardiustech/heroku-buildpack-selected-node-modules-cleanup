@@ -43,6 +43,8 @@ else
 
     echo "-----> Deleting node_modules/typescript..."
     rm -rf node_modules/typescript
+
+    echo "-----> Finished nuking unnecessarily large node_modules folders!"
   else
     printf "${RED}Fail:${NO_COLOR} Unable to run Node Modules Cleanup script.\n"
   fi
