@@ -1,14 +1,25 @@
 #!/usr/bin/env bash
 # bin/detect BUILD_DIR
 
+# Variable Constants
+
 BUILD_DIR=$1
 
-NODE_MODULES_CLEANUP_DIR=$BUILD_DIR/devops/scripts/buildpacks/node_modules_cleanup/
+BUILDPACK_RUN_FILE="${BUILD_DIR}/devops/scripts/buildpacks/node_modules_cleanup/buildpack-run.sh"
 
-if [ -f $NODE_MODULES_CLEANUP_DIR/buildpack-run.sh ]; then
-    echo "Performing Node Modules Cleanup"
+# ANSI escape codes for colors
 
-    exit 0
+NO_COLOR='\033[0m'
+RED='\033[0;31m'
+
+# Check if buildpack-run.sh file exists to ensure we can run the proper scripts
+
+MESSAGE="Node Modules Cleanup\n"
+
+if [ ! -f $BUILDPACK_RUN_FILE ]; then
+  FAIL_PREFIX="${RED}Fail:${NO_COLOR}"
 fi
 
-exit 1
+printf "${FAIL_PREFIX} ${MESSAGE}"
+
+exit 0
